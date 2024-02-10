@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script
-          type="module"
+          noModule
           src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
         ></script>
         <script

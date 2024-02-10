@@ -11,14 +11,30 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import React, { useRef } from "react";
+import axios from "axios";
+import { useRef } from "react";
 
 export default function page() {
-  const nameRef = useRef<null>;
-  const buyPriceRef = useRef<null>;
-  const sellPriceRef = useRef<null>;
+  const nameRef = useRef<HTMLIonInputElement>(null);
+  const buyPriceRef = useRef<HTMLIonInputElement>(null);
+  const sellPriceRef = useRef<HTMLIonInputElement>(null);
 
-  const handleSave = async () => {};
+  const handleSave = async () => {
+    const formData = new FormData();
+
+    formData.append("nmae", nameRef.current!.value?.toString() || "");
+    formData.append("buyPrice", buyPriceRef.current!.value?.toString() || "");
+    formData.append("sellPrice", sellPriceRef.current!.value?.toString() || "");
+
+    await axios.post("/product/api", formData).then((res: any) => {
+      console.log("Add Response : ", res.data);
+      if (res.data.status !== "error") {
+        window.location.href = "/product";
+      } else {
+        alert(res.data.error);
+      }
+    });
+  };
 
   return (
     <div>
@@ -27,7 +43,7 @@ export default function page() {
           <IonToolbar>
             <IonToolbar>
               <IonTitle>Add Product</IonTitle>
-              <IonButtons>
+              <IonButtons slot="end">
                 <IonButton onClick={handleSave}>Save</IonButton>
               </IonButtons>
             </IonToolbar>
