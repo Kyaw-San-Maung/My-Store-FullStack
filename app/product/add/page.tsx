@@ -22,7 +22,7 @@ export default function page() {
   const handleSave = async () => {
     const formData = new FormData();
 
-    formData.append("nmae", nameRef.current!.value?.toString() || "");
+    formData.append("name", nameRef.current!.value?.toString() || "");
     formData.append("buyPrice", buyPriceRef.current!.value?.toString() || "");
     formData.append("sellPrice", sellPriceRef.current!.value?.toString() || "");
 
