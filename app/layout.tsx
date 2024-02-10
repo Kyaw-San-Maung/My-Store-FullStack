@@ -18,11 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script
-          noModule
+          type="module"
           src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
         ></script>
         <script
-          nomodule
+          noModule
           src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
         ></script>
         <link
