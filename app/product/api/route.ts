@@ -43,7 +43,8 @@ export async function POST(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   const data = await req.formData();
 
-  const sql = "insert into products(Name, BuyPrice, SellPrice) values(?,?,?)";
+  const sql =
+    "Update products set Name = ?, BuyPrice = ?, SellPrice = ? where id = ?";
 
   const values = [
     data.get("name" || ""),

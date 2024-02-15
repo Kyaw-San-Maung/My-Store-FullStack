@@ -12,10 +12,11 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import axios from "axios";
+import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-export default function Page(params: any) {
-  const id = params.id;
+export default function Page() {
+  const { id } = useParams();
   const [product, setProducts] = useState<any>(null);
 
   //useRef is a React Hook that let you refrence a value
@@ -71,7 +72,7 @@ export default function Page(params: any) {
             <IonInput
               value={product?.Name}
               label="Name"
-              labelPlacement="fixed"
+              labelPlacement="stacked"
               placeholder="Name"
               ref={nameRef}
             ></IonInput>
@@ -80,14 +81,14 @@ export default function Page(params: any) {
             <IonInput
               value={product?.BuyPrice}
               label="Buy Price"
-              labelPlacement="floating"
+              labelPlacement="stacked"
               placeholder="Buy Price"
               ref={buyPriceRef}
             ></IonInput>
           </IonItem>
           <IonItem>
             <IonInput
-              value={product?.sellPrice}
+              value={product?.SellPrice}
               label="Sell Price"
               labelPlacement="stacked"
               placeholder="Sell Price"

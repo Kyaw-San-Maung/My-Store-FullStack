@@ -31,7 +31,7 @@ export default function ProductPage() {
   };
 
   const handleEdit = async (item: any) => {
-    window.location.href = "/product/view/" + item?.Id; // To See Product View;
+    window.location.href = "/product/edit/" + item?.Id; // To See Product View;
   };
   const handleDelete = async (item: any) => {
     console.log("Hi, This is delete");
@@ -55,7 +55,7 @@ export default function ProductPage() {
               <IonButtons slot="end">
                 <IonButton
                   onClick={() => handleView(items)}
-                  className="border border-green-800 border-x-2 border-y-2 rounded "
+                  className="border border-green-500 border-x-2 border-y-2 rounded "
                 >
                   View
                 </IonButton>
@@ -67,7 +67,7 @@ export default function ProductPage() {
                 </IonButton>
                 <IonButton
                   onClick={() => handleDelete(items)}
-                  className="border border-red-800 border-x-2 border-y-2 rounded"
+                  className="border border-red-500 border-x-2 border-y-2 rounded"
                 >
                   Delete
                 </IonButton>
