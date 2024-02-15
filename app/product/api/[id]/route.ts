@@ -27,10 +27,14 @@ export async function GET(
   console.log("This is Geting Data Page");
   console.log("This is Id " + id);
 
-  const sql = `select * from products where id = ?`;
+  const sql = `select * from products where Id = ?`;
 
   try {
+    console.log("This is goging to Try");
+
     const result = await query(sql, [id]);
+    console.log(result, sql, [id]);
+
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json(error);
